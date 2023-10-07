@@ -5,8 +5,9 @@ import { Menu } from "antd"
 const Navigation = () => {
   return (
     <div className='navigation'>
-      <Menu items={[
-        
+      <Menu 
+      mode="horizontal"
+      items={[
         {
           label: <HomeFilled />,
           key: 'home',
@@ -34,36 +35,30 @@ const Navigation = () => {
           key: 'women',
           children: [
             {
-              label: "Men's Shirts",
-              key: "mens-shirts",
+              label: "Women's Shirts",
+              key: "womens-shirts",
             },
             {
-              label: "Men's Shoes",
-              key: "mens-shoes",
+              label: "Women's Shoes",
+              key: "womens-shoes",
             },
             {
-              label: "Men's Watches",
-              key: "mens-watches",
+              label: "Women's Watches",
+              key: "womens-watches",
             },
+            {
+              label: "Women's Bags",
+              key: "womens-bags",
+            },
+            {
+              label: "Women's Jewllery",
+              key: "womens-jewellery",
+            }
           ]
         },
         {
           label: 'Accessories',
           key: 'accessories',
-          children: [
-            {
-              label: "Men's Shirts",
-              key: "mens-shirts",
-            },
-            {
-              label: "Men's Shoes",
-              key: "mens-shoes",
-            },
-            {
-              label: "Men's Watches",
-              key: "mens-watches",
-            },
-          ]
         },
       ]} />
     </div>
