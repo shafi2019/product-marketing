@@ -1,0 +1,48 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.navigation {
+  height: 60px;
+}
+
+.pageContent {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.footer {
+  height: 80px;
+  background-color: darkblue;
+}
+
+.homePage {
+  background: url("./Assets/homePageImage.jpg");
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3,1fr);
+  margin: 0 auto;
+  padding-top: 12%;
+  align-items: center;
+}
+
+.homeH1 {
+  font-size: 4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 10;
+  letter-spacing: 4px;
+  border-right: 2px solid #111;
+}
+
+.homeP {
+  padding-left: 30px;
+  font-size: 1rem;
+}
