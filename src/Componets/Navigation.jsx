@@ -1,16 +1,22 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { HomeFilled } from "@ant-design/icons"
 import { Menu } from "antd"
 
 const Navigation = () => {
+  const navigate = useNavigate()
+  const onMenuClick = (item) => {
+    navigate(`/${item.key}`);
+  }
   return (
     <div className='navigation'>
       <Menu 
+      onClick={onMenuClick}
       mode="horizontal"
       items={[
         {
           label: <HomeFilled />,
-          key: 'home',
+          key: '',
         },
         {
           label: 'Men',
