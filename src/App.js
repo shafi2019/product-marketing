@@ -1,4 +1,5 @@
 import {} from "antd"
+import React from 'react'
 import './App.css';
 import Navigation from "./Componets/Navigation";
 import Content from "./Componets/Content";
