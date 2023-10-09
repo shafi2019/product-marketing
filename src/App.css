@@ -49,6 +49,6 @@
 } 
 
 .productImage {
-  height: 120px !important;
+  height: 130px !important;
   object-fit: scale-down;
 }

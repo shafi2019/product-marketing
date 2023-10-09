@@ -9,7 +9,7 @@ const Products = () => {
             setItems(res.products)
         })
     }, [setItems])
-    console.log('Products from API', items)
+
     return (
         <div>
             <List
@@ -22,16 +22,27 @@ const Products = () => {
                             cover={
                                 <Image className="productImage" src={product.thumbnail} />}
                         >
-                            <Card.Meta title={
-                                <Typography.Paragraph>
-                                    Price: ${product.price} {"  "}
-                                    <Typography.Text>
-                                        {product.price +
-                                            (product.price * product.discountPercentage / 100)}
-                                    </Typography.Text>
-                                </Typography.Paragraph>
-                            }>
-                            </Card.Meta>
+                            <Card.Meta
+                                title={
+                                    <Typography.Paragraph>
+                                        Price: ${product.price}{"  "}
+                                        <Typography.Text delete type="danger">
+                                            $
+                                            {parseFloat(
+                                                product.price +
+                                                (product.price * product.discountPercentage) / 100
+                                            ).toFixed(2)}
+                                        </Typography.Text>
+                                    </Typography.Paragraph>
+                                }
+                                description={
+                                    <Typography.Paragraph
+                                        ellipsis={{ rows: 2, expandable: true, symbol: "more" }}
+                                    >
+                                        {product.description}
+                                    </Typography.Paragraph>
+                                }
+                            ></Card.Meta>
                         </Card>
                     )
                 }}
