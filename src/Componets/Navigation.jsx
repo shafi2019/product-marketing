@@ -1,9 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Badge } from 'antd'
-import { HomeFilled, ShoppingCartOutlined } from "@ant-design/icons"
-import { Menu } from "antd"
 import Typography from 'antd/es/typography/Typography'
+import { Menu } from "antd"
+import { HomeFilled } from "@ant-design/icons"
+import Cart from './Cart'
+
 
 
 const Navigation = () => {
@@ -14,6 +15,7 @@ const Navigation = () => {
   return (
     <div className='navigation'>
       <Menu
+        className="navMenu"
         onClick={onMenuClick}
         mode="horizontal"
         items={[
@@ -44,8 +46,8 @@ const Navigation = () => {
             key: 'women',
             children: [
               {
-                label: "Women's Shirts",
-                key: "womens-shirts",
+                label: "Women's Dresses",
+                key: "womens-dresses",
               },
               {
                 label: "Women's Shoes",
@@ -66,14 +68,12 @@ const Navigation = () => {
             ]
           },
           {
-            label: 'Accessories',
-            key: 'accessories',
+            label: 'Fragrances',
+            key: 'fragrances',
           },
         ]} />
       <Typography.Title>Shafi Store</Typography.Title>
-      <Badge count="7" className="shoppingCartIcon">
-        <ShoppingCartOutlined />
-      </Badge>
+      <Cart />
     </div>
   )
 }
