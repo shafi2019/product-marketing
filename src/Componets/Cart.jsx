@@ -116,7 +116,7 @@ function Cart() {
                     ]} label='Home Address' name='home_address'>
                         <Input placeholder='enter your address'/>
                     </Form.Item> 
-                    <Button type='primary'>Confirm your order</Button>
+                    <Button type='primary'>Proceed to payment</Button>
                 </Form>
 
             </Drawer>

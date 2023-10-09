@@ -27,6 +27,9 @@
 .footer {
   height: 50px;
   background-color: darkblue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .homePage {
