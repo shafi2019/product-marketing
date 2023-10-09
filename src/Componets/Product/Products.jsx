@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllProducts } from '../../API/Api'
-import { Card, List } from 'antd'
+import { Card, List, Image } from 'antd'
 
 const Products = () => {
     const [items, setItems] = useState([])
@@ -13,8 +13,9 @@ const Products = () => {
     return (
         <div>
             <List
+                grid={{ column: 4 }}
                 renderItem={(product, index) => {
-                    return <Card title={product.title} key={index}></Card>
+                    return <Card title={product.title} key={index} cover={<Image  className="productImage" src={product.thumbnail}/>}></Card>
                 }}
                 dataSource={items}></List>
         </div>
