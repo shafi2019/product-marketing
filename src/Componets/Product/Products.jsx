@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { getAllProducts } from '../../API/Api'
+import { useParams } from 'react-router-dom'
+import { getAllProducts, getProductsByCategory } from '../../API/Api'
 import { Card, List, Image, Typography, Rate } from 'antd'
 import CardButton from './CardButton'
 
 const Products = () => {
     const [items, setItems] = useState([])
+    const param = useParams()
     useEffect(() => {
-        getAllProducts().then((res) => {
+        getProductsByCategory(param.categoryId).then((res) => {
             setItems(res.products)
         })
-    }, [setItems])
+    }, [param])
 
     return (
         <div>
