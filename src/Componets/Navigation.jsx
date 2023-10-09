@@ -1,7 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { HomeFilled } from "@ant-design/icons"
+import { HomeFilled, ShoppingCartOutlined } from "@ant-design/icons"
 import { Menu } from "antd"
+import Typography from 'antd/es/typography/Typography'
+
 
 const Navigation = () => {
   const navigate = useNavigate()
@@ -67,6 +69,8 @@ const Navigation = () => {
           key: 'accessories',
         },
       ]} />
+      <Typography.Title>Shafi Store</Typography.Title>
+      <ShoppingCartOutlined className="shoppingCartIcon"></ShoppingCartOutlined>
     </div>
   )
 }
