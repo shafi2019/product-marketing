@@ -25,7 +25,7 @@ const Products = () => {
                                 <Image className="productImage" src={product.thumbnail} />}
                             actions={[
                                 <Rate allowHalf disabled value={product.rating} />, 
-                                <CardButton />
+                                <CardButton item={product}/>
                             ]}
                         >
                             <Card.Meta
