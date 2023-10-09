@@ -52,3 +52,7 @@
   height: 130px !important;
   object-fit: scale-down;
 }
+
+.productCard {
+  margin: 8px;
+}

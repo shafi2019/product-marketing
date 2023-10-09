@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllProducts } from '../../API/Api'
-import { Card, List, Image, Typography } from 'antd'
+import { Card, List, Image, Typography, Rate } from 'antd'
+import CardButton from './CardButton'
 
 const Products = () => {
     const [items, setItems] = useState([])
@@ -17,10 +18,15 @@ const Products = () => {
                 renderItem={(product, index) => {
                     return (
                         <Card
+                            className='productCard'
                             title={product.title}
                             key={index}
                             cover={
                                 <Image className="productImage" src={product.thumbnail} />}
+                            actions={[
+                                <Rate allowHalf disabled value={product.rating} />, 
+                                <CardButton />
+                            ]}
                         >
                             <Card.Meta
                                 title={
