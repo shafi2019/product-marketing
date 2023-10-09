@@ -20,7 +20,7 @@ function Cart() {
                 onClick={() => {
                     setCartDrawerOpen(true)
                 }}
-                count="7"
+                count={cartItems.length}
                 className="shoppingCartIcon">
                 <ShoppingCartOutlined />
             </Badge>

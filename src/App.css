@@ -10,6 +10,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 1px 3px 3px #00000033;
+}
+
+
+.navMenu {
+  border: none;
 }
 
 .shoppingCartIcon{
@@ -22,10 +28,11 @@
   display: flex;
   flex: 1;
   overflow-y: auto;
+  margin-top: 4px;
 }
 
 .footer {
-  height: 50px;
+  height: 40px;
   background-color: darkblue;
   display: flex;
   justify-content: space-evenly;

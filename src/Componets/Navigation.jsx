@@ -15,6 +15,7 @@ const Navigation = () => {
   return (
     <div className='navigation'>
       <Menu
+        className="navMenu"
         onClick={onMenuClick}
         mode="horizontal"
         items={[
