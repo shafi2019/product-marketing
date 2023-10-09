@@ -28,15 +28,17 @@ function Cart() {
                 }}
                 title='Your Cart'
             >
-             <Table columns={
-                [
+             <Table columns={[
                     {
                         title: 'Title',
                         dataIndex: 'title'
                     },
                     {
                         title: 'Price',
-                        dataIndex: 'price'
+                        dataIndex: 'price',
+                        render: (value) => {
+                            return <span>${value}</span>;
+                        },
                     },
                     {
                         title: 'Quantity',
@@ -44,10 +46,14 @@ function Cart() {
                     },
                     {
                         title: 'Total',
-                        dataIndex: 'total'
+                        dataIndex: 'total',
+                        render: (value) => {
+                            return <span>${value}</span>;
+                        }
                     }
-                ]
-             }/>
+                ]}
+                dataSource={cartItems}
+            />
             </Drawer>
         </div>
     )
