@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Badge, Drawer, Table } from 'antd'
+import { Badge, Drawer, InputNumber, Table } from 'antd'
 import { ShoppingCartOutlined } from "@ant-design/icons"
 import { getCart } from '../API/Api';
 
@@ -27,6 +27,7 @@ function Cart() {
                     setCartDrawerOpen(false)
                 }}
                 title='Your Cart'
+                contentWrapperStyle={{width:  600}}
             >
              <Table columns={[
                     {
@@ -37,7 +38,7 @@ function Cart() {
                         title: 'Price',
                         dataIndex: 'price',
                         render: (value) => {
-                            return <span>${value}</span>;
+                            return <InputNumber defaultValue={value}></InputNumber>;
                         },
                     },
                     {
@@ -53,7 +54,14 @@ function Cart() {
                     }
                 ]}
                 dataSource={cartItems}
+                summary={(data) => {
+                    const total = data.reduce((pre, current) => {
+                        return pre=current.total
+                    }, 0)
+                    return <span>Total: {total}</span>
+                }}
             />
+            
             </Drawer>
         </div>
     )
