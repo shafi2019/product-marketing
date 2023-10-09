@@ -56,3 +56,11 @@
 .productCard {
   margin: 8px;
 }
+
+.loadingSpin {
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin: 100px;
+  margin-left: 700px;
+}

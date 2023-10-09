@@ -17,7 +17,11 @@ const Products = () => {
         })
     }, [param]);
     if (loading) {
-        return <Spin spinning />
+        return (
+        <div className='loadingSpin'>
+            <Spin  spinning  size="large"/>
+        </div> 
+        )
     }
 
     return (
