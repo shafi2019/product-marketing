@@ -7,6 +7,14 @@
 
 .navigation {
   height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shoppingCartIcon{
+  font-size: 22px;
+  margin-right: 30px;
 }
 
 .pageContent {
@@ -16,7 +24,7 @@
 }
 
 .footer {
-  height: 80px;
+  height: 50px;
   background-color: darkblue;
 }
 
@@ -51,4 +59,16 @@
 .productImage {
   height: 130px !important;
   object-fit: scale-down;
+}
+
+.productCard {
+  margin: 8px;
+}
+
+.loadingSpin {
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin: 100px;
+  margin-left: 700px;
 }

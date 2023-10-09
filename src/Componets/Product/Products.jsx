@@ -1,14 +1,43 @@
 import React, { useEffect, useState } from 'react'
-import { getAllProducts } from '../../API/Api'
-import { Card, List, Image, Typography } from 'antd'
+import { useParams } from 'react-router-dom'
+import { getAllProducts, getProductsByCategory } from '../../API/Api'
+import { Card, List, Image, Typography, Rate, Spin } from 'antd'
+import CardButton from './CardButton'
 
 const Products = () => {
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(false)
+    const param = useParams()
+
     useEffect(() => {
-        getAllProducts().then((res) => {
-            setItems(res.products)
-        })
-    }, [setItems])
+        setLoading(true);
+        (param?.categoryId
+            ? getProductsByCategory(param.categoryId)
+            : getAllProducts()
+                ).then((res) => {
+                    setItems(res.products);
+                    setLoading(false)
+                });
+    }, [param]);
+
+
+    useEffect(() => {
+        setLoading(true);
+        (param?.categoryId
+          ? getProductsByCategory(param.categoryId)
+          : getAllProducts()
+        ).then((res) => {
+          setItems(res.products);
+          setLoading(false);
+        });
+      }, [param]);
+    if (loading) {
+        return (
+            <div className='loadingSpin'>
+                <Spin spinning size="large" />
+            </div>
+        )
+    }
 
     return (
         <div>
@@ -17,10 +46,15 @@ const Products = () => {
                 renderItem={(product, index) => {
                     return (
                         <Card
+                            className='productCard'
                             title={product.title}
                             key={index}
                             cover={
                                 <Image className="productImage" src={product.thumbnail} />}
+                            actions={[
+                                <Rate allowHalf disabled value={product.rating} />,
+                                <CardButton item={product} />
+                            ]}
                         >
                             <Card.Meta
                                 title={

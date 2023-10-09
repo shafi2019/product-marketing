@@ -6,8 +6,16 @@ import Category from '../Componets/Category/Index';
 const AppRoutes = () => {
   return (
     <Routes>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/:categoryId' element={<Category />}></Route>
+      <Route 
+        path='/'
+        element={
+        <div >
+          <Home />
+          <Category />
+        </div>}
+      >
+      </Route>
+      <Route path='/:categoryId' element={<Category />}></Route>
     </Routes>
   )
 }
