@@ -26,6 +26,7 @@
   z-index: 2;
   display: grid;
   width: 100%;
+  height: 70%;
   grid-template-columns: repeat(3,1fr);
   margin: 0 auto;
   padding-top: 12%;
@@ -45,4 +46,9 @@
 .homeP {
   padding-left: 30px;
   font-size: 1rem;
+} 
+
+.productImage {
+  height: 130px !important;
+  object-fit: scale-down;
 }
