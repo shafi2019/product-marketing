@@ -10,17 +10,32 @@ const Products = () => {
     const param = useParams()
 
     useEffect(() => {
-        setLoading(true)
-        getProductsByCategory(param.categoryId).then((res) => {
-            setItems(res.products);
-            setLoading(false)
-        })
+        setLoading(true);
+        (param?.categoryId
+            ? getProductsByCategory(param.categoryId)
+            : getAllProducts()
+                ).then((res) => {
+                    setItems(res.products);
+                    setLoading(false)
+                });
     }, [param]);
+
+
+    useEffect(() => {
+        setLoading(true);
+        (param?.categoryId
+          ? getProductsByCategory(param.categoryId)
+          : getAllProducts()
+        ).then((res) => {
+          setItems(res.products);
+          setLoading(false);
+        });
+      }, [param]);
     if (loading) {
         return (
-        <div className='loadingSpin'>
-            <Spin  spinning  size="large"/>
-        </div> 
+            <div className='loadingSpin'>
+                <Spin spinning size="large" />
+            </div>
         )
     }
 
@@ -37,8 +52,8 @@ const Products = () => {
                             cover={
                                 <Image className="productImage" src={product.thumbnail} />}
                             actions={[
-                                <Rate allowHalf disabled value={product.rating} />, 
-                                <CardButton item={product}/>
+                                <Rate allowHalf disabled value={product.rating} />,
+                                <CardButton item={product} />
                             ]}
                         >
                             <Card.Meta
