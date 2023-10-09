@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAllProducts, getProductsByCategory } from '../../API/Api'
-import { Card, List, Image, Typography, Rate } from 'antd'
+import { Card, List, Image, Typography, Rate, Spin } from 'antd'
 import CardButton from './CardButton'
 
 const Products = () => {
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(false)
     const param = useParams()
+
     useEffect(() => {
+        setLoading(true)
         getProductsByCategory(param.categoryId).then((res) => {
-            setItems(res.products)
+            setItems(res.products);
+            setLoading(false)
         })
-    }, [param])
+    }, [param]);
+    if (loading) {
+        return <Spin spinning />
+    }
 
     return (
         <div>
