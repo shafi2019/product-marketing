@@ -20,17 +20,6 @@ const Products = () => {
                 });
     }, [param]);
 
-
-    useEffect(() => {
-        setLoading(true);
-        (param?.categoryId
-          ? getProductsByCategory(param.categoryId)
-          : getAllProducts()
-        ).then((res) => {
-          setItems(res.products);
-          setLoading(false);
-        });
-      }, [param]);
     if (loading) {
         return (
             <div className='loadingSpin'>
